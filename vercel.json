@@ -1,18 +1,12 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app.js",
-      "use": "@vercel/node",
-      "config": {
-        "serverlessExternalPackages": ["mysql2"]
-      }
+  "functions": {
+    "app.js": {
+      "runtime": "nodejs18.x",
+      "serverlessExternalPackages": ["mysql2"]
     }
-  ],
+  },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.js"
-    }
+    { "src": "/(.*)", "dest": "/app.js" }
   ]
 }
